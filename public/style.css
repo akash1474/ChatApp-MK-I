@@ -79,14 +79,16 @@ body {
 
 .message {
     width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     margin: 14px 0px;
-    animation: showMsg 0.5s linear forwards;
+    animation: showMsg 0.7s linear forwards;
 }
 
 @keyframes showMsg {
     from {
         opacity: 0;
-        transform: translateY(2px);
+        transform: translateY(1px);
     }
     to {
         opacity: 1;
@@ -146,6 +148,7 @@ body {
 }
 
 .file {
+    position: relative;
     background-color: var(--color);
     height: 70px;
     width: 250px;
@@ -155,6 +158,51 @@ body {
     color: #fff;
     border-radius: 10px 15px 0px 10px;
     margin-left: auto;
+    margin-right: 0;
+    transition-duration: 0.35s;
+    margin-top: 25px;
+}
+.file::before {
+    transition-duration: 0.35s;
+    content: '';
+    background-color: #ffffff2a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(var(--width, 0) * 1%);
+    max-width: 100%;
+    height: 100%;
+}
+.download {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: auto;
+    margin-left: 0;
+    border-radius: 15px 10px 10px 0px;
+    background-color: #fff;
+}
+.download::before {
+    background: #1171f87c;
+    transition-duration: 0.35s;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(var(--width, 0) * 1%);
+    max-width: 100%;
+    height: 100%;
+}
+.download.username {
+    position: absolute;
+    font-size: 10px;
+    background: transparent;
+    top: -15px;
+    color: #333;
+    left: 10px;
 }
 .file_icon {
     padding: 10px;
@@ -173,6 +221,7 @@ body {
     --size: 30px;
     height: var(--size);
     width: var(--size);
+    transition-duration: 0.35s;
 }
 
 .file_size {
@@ -195,6 +244,10 @@ body {
 }
 
 #addFile {
+    background: url('./svg/addFile.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     --size: 15px;
     height: var(--size);
     width: var(--size);
@@ -205,6 +258,9 @@ body {
     transform: rotate(45deg);
 }
 
+#selector {
+    display: none;
+}
 #text {
     height: 30px;
     width: 70%;
@@ -247,10 +303,6 @@ body {
     margin-top: 170px;
     opacity: 0;
 }
-.container > #form > #addFile:hover ~ .files_options {
-    margin-top: -185px;
-    opacity: 1;
-}
 
 .files_options img {
     --size: 20px;
@@ -262,59 +314,3 @@ body {
 }
 
 /* Login form */
-header {
-    margin-top: 20px;
-    font-family: 'Montserrat black';
-    font-size: 30px;
-    width: 100%;
-    font-weight: bolder;
-    text-align: left;
-    color: var(--color);
-    margin-left: 10%;
-}
-
-#loginForm {
-    height: 200px;
-    width: 85%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 15px;
-    padding: 0px 0px 0px 10px;
-}
-
-.joinBtn {
-    height: 40px;
-    width: 90%;
-    background: var(--color);
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-}
-label {
-    font-size: 15px;
-    width: 90%;
-    text-align: left;
-}
-#username {
-    height: 30px;
-    width: 90%;
-    border: 1px solid var(--color);
-    border-radius: 5px;
-    padding: 0px 5px;
-}
-
-h2 {
-    font-family: 'Montserrat black';
-    font-size: 40px;
-    width: 100%;
-    text-align: left;
-    margin-left: 10%;
-    color: #555;
-}
