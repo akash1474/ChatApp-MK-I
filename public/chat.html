@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="header">
+            <img src="./user.svg" class="user_icon" alt="" srcset="" />
+            <p class="user_name">Global Chat Group</p>
+            <div class="noUsers"></div>
+        </div>
+        <div class="container">
+            <div class="messages">
+                <!-- <div class="message file">
+                    <img src="file.svg" alt="" class="file_icon" />
+                    <div class="file_info">
+                        <p class="file_name">Google.pdf</p>
+                        <p class="file_size">286.3 kb</p>
+                    </div>
+                    <img src="download.svg" alt="" class="file_download" />
+                </div> -->
+            </div>
+            <form id="form">
+                <img src="./addFile.svg" id="addFile" alt="" srcset="" />
+                <input type="text" name="text" placeholder="Type a message here" id="text" />
+                <button type="submit" name="send" id="submit">
+                    <img src="./send.svg" alt="" class="sendImg" srcset="" />
+                </button>
+            </form>
+        </div>
+        <!-- <div class="files_options">
+            <img src="./camera.svg" alt="" srcset="" />
+            <img src="./play.svg" alt="" srcset="" />
+            <img src="./file.svg" alt="" srcset="" />
+        </div> -->
+        <script src="qs.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="bundle.js"></script>
+    </body>
+</html>
