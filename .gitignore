@@ -1,6 +1,3 @@
 *.env
 .cache/
-Practices/
-test/
-templates/
 node_modules/
