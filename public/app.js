@@ -39,7 +39,7 @@ socket.on('uploadedFile', (data) => {
     downloadBtn.addEventListener('click', async () => {
         try {
             console.log('Download Started!!!');
-            const data = await axios.get(`http://localhost:3000/uploads/abstract-3.jpeg`, {
+            const data = await axios.get(`/uploads/abstract-3.jpeg`, {
                 onDownloadProgress: (e) => {
                     const percent = Math.round((e.loaded / e.total) * 100);
                     downloadBtn.style.setProperty('--width', percent);
@@ -102,7 +102,7 @@ fileSelector.addEventListener('change', async (e) => {
     const formData = new FormData();
     formData.append('file', file);
     try {
-        const res = await axios.post('http://localhost:3000/uploads', formData, {
+        const res = await axios.post('/uploads', formData, {
             onUploadProgress: (e) => {
                 const percent = Math.round((e.loaded / e.total) * 100);
                 progressBar.style.setProperty('--width', percent);
